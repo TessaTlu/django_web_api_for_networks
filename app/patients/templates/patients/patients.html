@@ -1,0 +1,17 @@
+{% extends 'main/layout.html' %}
+{% block title %}Patients{% endblock %}
+
+    {% block content %}
+<div class="features">
+    <h1>I would say "thank you" to everyone who shared his diagnosis to Elise: </h1>
+    {% for current in analysis %}
+    <div class="alert-info">
+    <h2>{{ current.user_name }}</h2>
+    <h3>{{ current.age }}</h3>
+    <p> {{ current.report }}</p>
+    <h3> {{ current.date }}</h3>
+        <a href="{% url 'patients_detail' current.id %}" class="btn btn-warning">Details</a>
+    </div>
+    {% endfor %}
+</div>
+    {% endblock %}
